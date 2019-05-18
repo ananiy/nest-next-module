@@ -1,6 +1,6 @@
 {
   "name": "nest-next-module",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "using nestjs and nextjs together!",
   "main": "dist/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "tslint": "^5.16.0",
     "tslint-config-blvd": "^1.2.1",
     "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.4.5"
   }
 }
