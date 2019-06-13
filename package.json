@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/ananiy/nest-next-module.git"
   },
-  "keywords": [],
+  "keywords": [
+    "nestjs",
+    "nextjs",
+    "nestjs-module"
+  ],
   "author": "ananiy",
   "license": "MIT",
   "bugs": {
