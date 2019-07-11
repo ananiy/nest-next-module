@@ -1,6 +1,7 @@
-import { Server as NextServer } from 'next'
+import NextServer from 'next-server/dist/server/next-server'
 import { Request, Response } from 'express'
-import { DefaultQuery, UrlLike } from 'next/router'
+import { ParsedUrlQuery } from 'querystring'
+import { UrlWithParsedQuery } from 'url'
 
 export interface NextRequest extends Request {}
 
@@ -8,8 +9,8 @@ export interface NextResponse extends Response {
   nextServer: NextServer
   nextRender: (
     pathname: string,
-    query?: DefaultQuery,
-    parsedUrl?: UrlLike
+    query?: ParsedUrlQuery,
+    parsedUrl?: UrlWithParsedQuery
   ) => Promise<void>
   nextRequestHandler: ReturnType<NextServer['getRequestHandler']>
 }

@@ -1,6 +1,6 @@
 import { NestModule, MiddlewareConsumer, Module } from '@nestjs/common'
 import { DynamicModule } from '@nestjs/common/interfaces'
-import { ServerOptions as NextServerOptions } from 'next'
+import { ServerConstructor as NextServerOptions } from 'next-server/dist/server/next-server'
 import { createNextServer } from './next-server.provider'
 import { NextMiddleware } from './next.middleware'
 import { NextController } from './next.controller'

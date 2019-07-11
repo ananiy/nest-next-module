@@ -1,7 +1,7 @@
-import Next, {
-  Server as NextServerType,
-  ServerOptions as NextServerOptions,
-} from 'next'
+import Next from 'next'
+import NextServerType, {
+  ServerConstructor as NextServerOptions,
+} from 'next-server/dist/server/next-server'
 import { FactoryProvider } from '@nestjs/common/interfaces'
 
 export const NextServerToken = 'NextServerToken'

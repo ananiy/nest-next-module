@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware, Inject } from '@nestjs/common'
 import { NextServerToken } from './next-server.provider'
 import { NextRequest, NextResponse } from './types'
-import { Server as NextServer } from 'next'
+import NextServer from 'next-server/dist/server/next-server'
 
 @Injectable()
 export class NextMiddleware
