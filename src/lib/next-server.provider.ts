@@ -1,14 +1,13 @@
 import Next from 'next'
-import NextServerType, {
-  ServerConstructor as NextServerOptions,
-} from 'next-server/dist/server/next-server'
+
 import { FactoryProvider } from '@nestjs/common/interfaces'
+import { NextServer, NextServerOptions } from './types'
 
 export const NextServerToken = 'NextServerToken'
 
 export const createNextServer = (
   nextServerOptions: NextServerOptions
-): FactoryProvider<Promise<NextServerType>> => ({
+): FactoryProvider<Promise<NextServer>> => ({
   provide: NextServerToken,
   useFactory: async () => {
     const nextServer = Next(nextServerOptions)
