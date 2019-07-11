@@ -16,14 +16,19 @@
 
 原因主要是因为`nest-next`篡改了`nestjs`中`express`中的模板引擎, 侵入性比较强, 如果我还需要用`express`的模板渲染的话, 是不可能做到的. 其次`nest-next`的模块导入方式不符合`nestjs`模块正常使用方式, 需要手动启动`next-server`并绑定.
 
+## 注意！
+
+目前nextjs最新版为9.x版本，如果要在9.x版本中使用本模块，请参考：
+
+https://github.com/ananiy/nest-next-module/tree/release/v0.1.8
+
+并使用[v0.1.8](https://www.npmjs.com/package/nest-next-module/v/0.1.8)版本
+
 ## Demo
 
-[nest-next-module-demo](https://github.com/ananiy/nest-next-module-demo/tree/release/v0.1.8)
-
-[nest-next-module-demo-with-typescript](https://github.com/ananiy/nest-next-module-demo/tree/using-typescript)
+[nest-next-module-demo](https://github.com/ananiy/nest-next-module-demo/tree/release/v0.2.3)
 
 ## 开始使用
-
 
 - 安装`@nestjs/cli`, 新建一个项目:
 
@@ -99,69 +104,8 @@ $ yarn start
 
 ## 在nextjs中使用typescript
 
-- 为了在`nextjs`中使用`typescript`, 需要安装`@zeit/next-typescript`包, 和一些的声明文件包:
+最新版的nextjs已经内置了ts的支持， 因此可以直接使用ts/tsx
 
-```bash
-$ yarn add @zeit/next-typescript
-$ yarn add @types/next @types/react @types/react-dom -D
-```
+但是到目前为止，nextjs 9.0.0版本会默认覆盖tsconfig.json，并且设置module为esnext，导致nestjs无法编译
 
-- 项目根目录新建`.babelrc.js`和`next.config.js`:
-
-```js
-// .babelrc.js
-module.exports = {
-  presets: ['next/babel', '@zeit/next-typescript/babel'],
-};
-
-// next.config.js
-const withTypescript = require('@zeit/next-typescript');
-
-module.exports = withTypescript({
-  useFileSystemPublicRoutes: false,
-});
-```
-
-- 更新下`tsconfig.json`, 增加了`jsx`, `moduleResolution`, `esModuleInterop`的编译选项配置:
-
-```json
-{
-  "compilerOptions": {
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es6",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true
-  },
-  "exclude": ["node_modules"]
-}
-```
-
-- 重命名`pages/index.jsx`为`pages/index.tsx`, 加入类型:
-
-```tsx
-import React from 'react';
-import { NextFC } from 'next';
-
-const Page: NextFC = () => {
-  return <h1>hello nest next!</h1>;
-};
-
-export default Page;
-```
-
-- 启动项目:
-
-```bash
-$ yarn start
-```
-
-- 打开浏览器, 访问`http://localhost:3000/`.
+所以需要单独新建nestjs的tsconfig文件，改module为commonjs，具体可以参考demo中的配置
