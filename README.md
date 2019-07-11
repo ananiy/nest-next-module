@@ -18,7 +18,7 @@
 
 ## Demo
 
-[nest-next-module-demo](https://github.com/ananiy/nest-next-module-demo)
+[nest-next-module-demo](https://github.com/ananiy/nest-next-module-demo/tree/release/v0.1.8)
 
 [nest-next-module-demo-with-typescript](https://github.com/ananiy/nest-next-module-demo/tree/using-typescript)
 
