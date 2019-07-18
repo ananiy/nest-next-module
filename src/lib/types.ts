@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import { ParsedUrlQuery } from 'querystring'
 import { UrlWithParsedQuery } from 'url'
-import next from 'next/dist/server/next'
+import Next from 'next'
 
-export type NextServer = ReturnType<typeof next>
-export type NextServerOptions = Parameters<typeof next>[0]
+export type NextServer = ReturnType<typeof Next>
+export type NextServerOptions = Parameters<typeof Next>[0]
 
 export interface NextRequest extends Request {}
 

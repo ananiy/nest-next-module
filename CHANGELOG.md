@@ -1,3 +1,7 @@
+## 0.2.4
+
+- update deps
+
 ## 0.2.3
 
 - fix bugs
