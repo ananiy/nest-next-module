@@ -106,6 +106,6 @@ $ yarn start
 
 最新版的nextjs已经内置了ts的支持， 因此可以直接使用ts/tsx
 
-但是到目前为止，nextjs 9.0.0版本会默认覆盖tsconfig.json，并且设置module为esnext，导致nestjs无法编译
+但是到目前为止，nextjs 9.0.x版本会默认覆盖tsconfig.json，并且设置module为esnext，导致nestjs无法编译
 
 所以需要单独新建nestjs的tsconfig文件，改module为commonjs，具体可以参考demo中的配置
