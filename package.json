@@ -1,6 +1,6 @@
 {
   "name": "nest-next-module",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "using nestjs and nextjs together!",
   "main": "dist/index.js",
   "scripts": {
