@@ -1,21 +1,27 @@
 import { NestModule, MiddlewareConsumer, Module } from '@nestjs/common'
-import { DynamicModule, Provider } from '@nestjs/common/interfaces'
+import {
+  ModuleMetadata,
+  Provider,
+  DynamicModule,
+} from '@nestjs/common/interfaces'
 import { createNextServer } from './next-server.provider'
 import { NextMiddleware } from './next.middleware'
 import { NextController } from './next.controller'
 import { NextServerOptions } from './types'
+
+type ModuleType = NonNullable<ModuleMetadata['imports']>[0]
 
 @Module({})
 export class NestNextModule implements NestModule {
   static forRoot(
     nextServerOptions: NextServerOptions,
     cacheOptions?: {
-      module: DynamicModule
+      module: ModuleType
       provider: Provider
     }
   ): DynamicModule {
     const nextServer = createNextServer(nextServerOptions)
-    const IMPORTS: DynamicModule[] = []
+    const IMPORTS: ModuleType[] = []
     const PROVIDERS: Provider[] = [nextServer]
     if (typeof cacheOptions !== 'undefined') {
       IMPORTS.push(cacheOptions.module)
