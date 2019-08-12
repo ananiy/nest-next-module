@@ -1,17 +1,5 @@
-import {
-  NestModule,
-  MiddlewareConsumer,
-  Module,
-  CacheModule,
-  CacheManagerOptions,
-  CacheInterceptor,
-} from '@nestjs/common'
-import { APP_INTERCEPTOR } from '@nestjs/core'
-import {
-  DynamicModule,
-  Provider,
-  ModuleMetadata,
-} from '@nestjs/common/interfaces'
+import { NestModule, MiddlewareConsumer, Module } from '@nestjs/common'
+import { DynamicModule, Provider } from '@nestjs/common/interfaces'
 import { createNextServer } from './next-server.provider'
 import { NextMiddleware } from './next.middleware'
 import { NextController } from './next.controller'
@@ -21,24 +9,24 @@ import { NextServerOptions } from './types'
 export class NestNextModule implements NestModule {
   static forRoot(
     nextServerOptions: NextServerOptions,
-    cacheOptions?: CacheManagerOptions
+    cacheOptions?: {
+      module: DynamicModule
+      provider: Provider
+    }
   ): DynamicModule {
     const nextServer = createNextServer(nextServerOptions)
-    const IMPORTS: ModuleMetadata['imports'] = []
-    const PROVIDES: Provider[] = [nextServer]
+    const IMPORTS: DynamicModule[] = []
+    const PROVIDERS: Provider[] = [nextServer]
     if (typeof cacheOptions !== 'undefined') {
-      IMPORTS.push(CacheModule.register(cacheOptions))
-      PROVIDES.push({
-        provide: APP_INTERCEPTOR,
-        useClass: CacheInterceptor,
-      })
+      IMPORTS.push(cacheOptions.module)
+      PROVIDERS.push(cacheOptions.provider)
     }
 
     return {
       module: NestNextModule,
       imports: IMPORTS,
       controllers: [NextController],
-      providers: PROVIDES,
+      providers: PROVIDERS,
       exports: [nextServer],
     }
   }
