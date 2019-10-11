@@ -8,6 +8,11 @@ export class NextController {
     return res.nextRequestHandler(req, res)
   }
 
+  @Get('public/*')
+  publicHandler(@Req() req: NextRequest, @Res() res: NextResponse) {
+    return res.nextRequestHandler(req, res)
+  }
+
   @Get('static/*')
   staticHandler(@Req() req: NextRequest, @Res() res: NextResponse) {
     return res.nextRequestHandler(req, res)
