@@ -7,12 +7,10 @@ export class NextMiddleware
   implements NestMiddleware<NextRequest, NextResponse> {
   constructor(@Inject(NextServerToken) private nextServer: NextServer) {}
 
-  use(req: NextRequest, res: NextResponse, next: () => void) {
+  use(_req: NextRequest, res: NextResponse, next: () => void): void {
     res.nextServer = this.nextServer
-    res.nextRender = this.nextServer.render.bind(this.nextServer, req, res)
-    res.nextRequestHandler = this.nextServer
-      .getRequestHandler()
-      .bind(this.nextServer)
+    res.nextRender = this.nextServer.render
+    res.nextRequestHandler = this.nextServer.getRequestHandler()
     next()
   }
 }
