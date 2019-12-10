@@ -1,6 +1,6 @@
 {
   "name": "nest-next-module",
-  "version": "0.5.0",
+  "version": "0.5.3",
   "description": "using nestjs and nextjs together!",
   "main": "dist/index.js",
   "scripts": {
@@ -24,6 +24,8 @@
   "dependencies": {
     "@nestjs/common": "^6.10.8",
     "@nestjs/core": "^6.10.8",
+    "@types/express": "^4.17.2",
+    "express": "^4.17.1",
     "next": "^9.1.5"
   },
   "devDependencies": {

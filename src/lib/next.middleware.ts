@@ -9,7 +9,7 @@ export class NextMiddleware
 
   use(_req: NextRequest, res: NextResponse, next: () => void): void {
     res.nextServer = this.nextServer
-    res.nextRender = this.nextServer.render
+    res.nextRender = this.nextServer.render.bind(this.nextServer)
     res.nextRequestHandler = this.nextServer.getRequestHandler()
     next()
   }
