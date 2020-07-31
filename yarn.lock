@@ -2749,9 +2749,9 @@ domain-browser@^1.1.1:
   integrity sha1-PTH1AZGmdJ3RN1p/Ui6CPULlTto=
 
 dot-prop@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.npm.taobao.org/dot-prop/download/dot-prop-5.1.0.tgz#bdd8c986a77b83e3fca524e53786df916cabbd8a"
-  integrity sha1-vdjJhqd7g+P8pSTlN4bfkWyrvYo=
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.2.0.tgz#c34ecc29556dc45f1f4c22697b6f4904e0cc4fcb"
+  integrity sha512-uEUyaDKoSQ1M4Oq8l45hSE26SnTxL6snNnqvK/VWx5wJhmff5z0FUVJDKDanor/6w3kzE3i7XZOk+7wC0EXr1A==
   dependencies:
     is-obj "^2.0.0"
 
@@ -4041,8 +4041,8 @@ is-obj@^1.0.1:
 
 is-obj@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.npm.taobao.org/is-obj/download/is-obj-2.0.0.tgz#473fb05d973705e3fd9620545018ca8e22ef4982"
-  integrity sha1-Rz+wXZc3BeP9liBUUBjKjiLvSYI=
+  resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-2.0.0.tgz#473fb05d973705e3fd9620545018ca8e22ef4982"
+  integrity sha512-drqDG3cbczxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==
 
 is-observable@^1.1.0:
   version "1.1.0"
